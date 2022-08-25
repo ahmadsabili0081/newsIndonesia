@@ -1,5 +1,4 @@
 let apiKey = '1eff027380aa4f0b9ec00dc745af55f6'; 
-let apiGet = `https://newsapi.org/v2/top-headlines?country=id&apiKey=${apiKey}`;
 let row_banner = document.querySelector('.row__banner');
 let prev = document.querySelector('.prev');
 let next = document.querySelector('.next');
@@ -15,7 +14,7 @@ footer.innerText = `${footerDate}`
 
 document.addEventListener('DOMContentLoaded',getData);
 async function getData () {
-  let dataNews = await fetch(apiGet);
+  let dataNews = await fetch(`https://newsapi.org/v2/top-headlines?country=id&apiKey=${apiKey}`);
   let ambilDataNews = await dataNews.json();
   let ambilHasilDataNews = ambilDataNews.articles;
   randomFunc(ambilHasilDataNews);
